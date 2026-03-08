@@ -34,12 +34,11 @@ alias mcpi="bunx @modelcontextprotocol/inspector@latest"
 # --- 5. Logic Functions ---
 css() {
   bash ~/Development/git-hub/tool-belt/scripts/claude-standards-sync.sh
-  echo "Claude standards synced to .claude/standards/"
+  echo -e "\e[1;32m✔ Claude standards synced to .claude/standards/\e[0m"
   echo ""
-  echo "Ensure your project CLAUDE.md contains:"
-  echo ""
-  echo "  ## Global Standards"
-  echo "  @.claude/standards/_INDEX.md"
+  echo -e "\e[1;34mEnsure your project CLAUDE.md contains:\e[0m"
+  echo -e "\e[1;33m## Global Standards\e[0m"
+  echo -e "\e[1;33m@.claude/standards/_INDEX.md\e[0m"
 }
 
 
