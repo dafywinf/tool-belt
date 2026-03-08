@@ -1,10 +1,19 @@
 # Git Workflow & Conventions
 
+## Starting New Work
+
+When asked to start a new feature or work on a task, follow this sequence:
+
+1. `git checkout main`
+2. `git pull origin main`
+3. `git checkout -b type/short-description`
+
+Never work directly on `main`.
+
 ## Branch Naming
 
-- **Convention:** `type/description-issueID` (e.g., `feat/user-auth-101`)
+- **Convention:** `type/short-description` (e.g., `feat/user-auth`, `fix/login-bug`)
 - **Allowed Types:** `feat`, `fix`, `refactor`, `docs`, `chore`
-- **Rule:** Always create a new branch for a new task. Never work directly on `main`.
 
 ## Conventional Commits
 
