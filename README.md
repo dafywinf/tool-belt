@@ -6,20 +6,18 @@ A personal developer toolkit — shell commands, Claude AI standards, and utilit
 
 ## Installation
 
-Everything runs through oh-my-zsh custom files. Install once and all commands are available in every terminal session.
-
-**Requirements:** [oh-my-zsh](https://ohmyz.sh)
+Requires [oh-my-zsh](https://ohmyz.sh). Copy the custom files and reload your shell:
 
 ```bash
 cp ~/Development/git-hub/tool-belt/oh-my-zsh/custom/*.zsh ~/.oh-my-zsh/custom/
 source ~/.zshrc
 ```
 
-That's it. Run `ch` to see all available commands.
-
 ---
 
-## Commands
+## Shell Commands
+
+### Claude — `claude.zsh` · help: `ch`
 
 | Command | Description |
 |---------|-------------|
@@ -28,35 +26,57 @@ That's it. Run `ch` to see all available commands.
 | `cv` | Launch Claude in voice-optimised mode |
 | `cdi` | Launch Claude with local diagram context |
 | `css` | Sync global Claude standards into the current project |
-| `ch` | Show this command list |
-| `dtree` | Print an ASCII directory tree of any path |
+| `ghv` | Open current GitHub repo in browser |
+| `ghcp` | Copy current GitHub repo URL to clipboard |
+| `mcpi` | Launch MCP Inspector |
+
+---
+
+### Java — `java.zsh` · help: `jh`
+
+| Command | Description |
+|---------|-------------|
+| `jv` | Show current Java version |
+| `jdk8` | Switch active JDK to JDK 8 |
+
+---
+
+### Kubernetes — `kubernetes.zsh` · help: `kh`
+
+| Command | Description |
+|---------|-------------|
+| `k` | kubectl |
+| `kgp` | kubectl get pods |
+| `kl` | kubectl logs -f |
+| `hm` | helm |
+| `argo` | argocd |
+| `argol` | argocd login |
+
+---
+
+### Tools — `tools.zsh` · help: `dth`
+
+| Command | Description |
+|---------|-------------|
+| `dtree` | Print ASCII directory tree of current or given path |
+
+---
+
+### Keybindings — `keybindings.zsh`
+
+| Binding | Action |
+|---------|--------|
+| `Ctrl+→` | Accept next word of autosuggestion |
 
 ---
 
 ## Setting Up Claude Standards in a New Project
 
-Run `css` from the project root:
-
-```bash
-cd ~/your-project
-css
-```
-
-Then add the following to your project's `CLAUDE.md` (create it if it doesn't exist):
+Run `css` from the project root, then add this to your `CLAUDE.md`:
 
 ```markdown
 ## Global Standards
 @.claude/standards/_INDEX.md
 ```
 
-Claude will now read the global standards automatically. The `css` command is safe to re-run — it will pull in any updates from tool-belt without touching your `CLAUDE.md`.
-
----
-
-## What's in the repo
-
-```
-oh-my-zsh/custom/   # Shell customisations — copy these to ~/.oh-my-zsh/custom/
-claude/standards/   # Global Claude coding standards (source of truth)
-scripts/            # Utility scripts (Python + shell)
-```
+See [`claude/README.md`](claude/README.md) for full details.
