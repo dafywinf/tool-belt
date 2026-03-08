@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Testing & reporting
+.pytest_cache/
+allure-results/
+allure-report/
+.coverage
+htmlcov/
+
+# Type checking
+.mypy_cache/
+
+# Editor
+.DS_Store
+.idea/
+.vscode/
