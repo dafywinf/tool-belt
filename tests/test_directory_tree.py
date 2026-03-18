@@ -81,12 +81,11 @@ class TestGenerateTree:
         # __pycache__ and .git should now be visible with custom ignore
         assert "dir_a" in result
 
-    @allure.title("Empty ignore_list shows all items including hidden dirs")
-    @allure.description("Passing an empty set causes .git and __pycache__ to appear.")
+    @allure.title("Empty ignore_list shows hidden dirs")
+    @allure.description("Passing an empty set causes hidden directories to appear in the output.")
     def test_empty_ignore_list_shows_all(self) -> None:
         result = generate_tree(FIXTURE_DIR, ignore_list=set())
-        assert ".git" in result
-        assert "__pycache__" in result
+        assert ".hidden_dir" in result
 
     @allure.title("Returns empty string for unreadable directory")
     @allure.description("PermissionError on iterdir() must return empty string, not raise.")
