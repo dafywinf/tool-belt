@@ -71,6 +71,20 @@ source ~/.zshrc
 
 ---
 
+## Other Useful Tools
+
+### `npx ccstatusline@latest`
+
+Adds a customisable status line to your Claude Code session that displays real-time context — current git branch, working directory, token usage, and other session metadata — directly in the Claude Code interface.
+
+Valuable because it keeps you oriented without breaking flow: you can see at a glance which branch you're on, how much context you've consumed, and where you are in the filesystem, all without switching away from the conversation.
+
+```bash
+npx ccstatusline@latest
+```
+
+---
+
 ## Setting Up Claude Standards in a New Project
 
 Run `css` from the project root, then add this to your `CLAUDE.md`:
