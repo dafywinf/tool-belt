@@ -1,3 +1,9 @@
+# Claude Code shell config — baked into the devcontainer image.
+# Sourced automatically by Oh-my-zsh (all *.zsh in custom/ are loaded).
+#
+# Container-specific Claude shell config for this devcontainer template.
+# Keep this file tracked directly in the repo.
+
 # --- Initialization Check ---
 echo "📂 Configuring Claude : $0  [ch for help]"
 
@@ -12,9 +18,7 @@ ch() {
   echo -e "\e[1;33mcx\e[0m  : Launch Claude & skip all permissions"
   echo -e "\e[1;33mcv\e[0m  : Launch Claude in Voice-Optimized mode"
   echo -e "\e[1;33mcdi\e[0m : Launch Claude with local diagram context"
-  echo -e "\e[1;33mcss\e[0m     : Sync global Claude standards into this project"
   echo -e "\e[1;33mct\e[0m      : Launch Claude in Teleport mode"
-  echo -e "\e[1;33mdc_sync_python\e[0m : Sync the Python devcontainer template into this repo"
   echo -e "\e[1;34m--------------------------------------------------\e[0m"
 }
 
@@ -34,16 +38,6 @@ alias mcpi="bunx @modelcontextprotocol/inspector@latest"  # Launch MCP Inspector
 
 # --- 5. Logic Functions ---
 
-# css: Sync global Claude standards into the current project
-css() {
-  bash ~/Development/git-hub/tool-belt/scripts/claude-standards-sync.sh
-  echo -e "\e[1;32m✔ Claude standards synced to .claude/standards/\e[0m"
-  echo ""
-  echo -e "\e[1;34mEnsure your project CLAUDE.md contains:\e[0m"
-  echo -e "\e[1;33m## Global Standards\e[0m"
-  echo -e "\e[1;33m@.claude/standards/_INDEX.md\e[0m"
-}
-
 # cdi: Launch Claude with local diagram context injected as a system prompt
 unalias cdi 2>/dev/null
 cdi() {
@@ -58,21 +52,3 @@ cdi() {
 
 # --- 6. Teleport Mode ---
 alias ct="claude --teleport"                         # Launch Claude in Teleport mode
-
-# --- 7. Devcontainer template tools ---
-# dc_sync_python: Sync the Python devcontainer template into the current repo.
-# Usage: dc_sync_python
-dc_sync_python() {
-  local src="$HOME/Development/git-hub/tool-belt/devcontainer-templates/python-backend/.devcontainer"
-
-  if [[ ! -d "$src" ]]; then
-    echo "Python devcontainer template not found: $src"
-    return 1
-  fi
-
-  rsync -av --delete "$src/" "./.devcontainer/"
-  echo ""
-  echo -e "\e[1;32m✔ .devcontainer/ synced from python-backend template\e[0m"
-  echo -e "\e[1;33m  Review: git diff .devcontainer/\e[0m"
-  echo -e "\e[1;33m  Then rebuild: Cmd+Shift+P → 'Dev Containers: Rebuild Container'\e[0m"
-}
