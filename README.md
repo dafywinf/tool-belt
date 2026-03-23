@@ -26,6 +26,7 @@ source ~/.zshrc
 | `cv` | Launch Claude in voice-optimised mode |
 | `cdi` | Launch Claude with local diagram context |
 | `css` | Sync global Claude standards into the current project |
+| `dc_sync_python` | Sync the Python backend devcontainer template into the current repo |
 | `ghv` | Open current GitHub repo in browser |
 | `ghcp` | Copy current GitHub repo URL to clipboard |
 | `mcpi` | Launch MCP Inspector |
@@ -80,3 +81,13 @@ Run `css` from the project root, then add this to your `CLAUDE.md`:
 ```
 
 See [`claude/README.md`](claude/README.md) for full details.
+
+---
+
+## Devcontainer Support
+
+The repo also includes reusable devcontainer support under
+[`devcontainer-templates/python-backend/`](/Users/dafywinf/Development/git-hub/tool-belt/.worktrees/feat-devcontainer-templates/devcontainer-templates/python-backend).
+
+Start with the template README:
+[`devcontainer-templates/python-backend/README.md`](/Users/dafywinf/Development/git-hub/tool-belt/.worktrees/feat-devcontainer-templates/devcontainer-templates/python-backend/README.md)
